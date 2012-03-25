@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Infinite Scroll</title> 
+    <style type="text/css">
+    .item {
+      min-height: 60px;
+      width: 300px;
+      border: 1px solid #999;
+      background-color: #eee;
+      text-align: center;
+      margin-left: 30px;
+      margin-top: 10px;
+      padding-top: 30px;
+    }
+    </style>
+    <script type="text/javascript" src="jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="infiniteScroll.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        console.log("Init complete.");
+
+        // create a long list of items
+        var container = $("#container");
+        var lastItemIndex = 0;
+        var appendToList = function() {
+          for(var i=0; i<100; i++) {
+            var el = $("<div>").attr("class", "item").html("Item " + (lastItemIndex + 1));
+            lastItemIndex = lastItemIndex + 1;
+            container.append(el);
+          }
+        }
+
+        container.bind("infinite-scroll", function(args) {
+          console.log("Received", args);
+          // add to the existing long list
+          // you can do anything you want here
+          // make a $.ajax request to fetch the next couple of records etc.
+          appendToList();
+        });
+
+        var infiniteScroll = new $.InfiniteScroll('#container', true).setup();
+        appendToList();
+
+      });
+    </script>
+  </head>
+  <body>
+    <p>
+      As you scroll down these list of items, every time you come close to the end of the scrollable page,
+      you will see the list expand to include more items. For more information take a look at, <a href="infiniteScroll.js">the source of infiniteScroll.js</a>.
+    </p>
+    <div id="container">
+    </div>
+  </body>
+</html>
