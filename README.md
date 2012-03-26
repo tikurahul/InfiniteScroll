@@ -8,4 +8,5 @@ The Infinite Scroll plugin does something very simple. It keeps track of the scr
 Notes
 -----
 I have borrowed ideas from John Resig's blog post on "Learning from Twitter" (http://ejohn.org/blog/learning-from-twitter/)
+
 The test page is at (http://tikurahul.github.com/InfiniteScroll)
