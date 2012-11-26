@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <style type="text/css">
+
+    /* simplest css reset */
+
+    html, body, ul, ol, li, form, fieldset, legend
+    {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* apply a natural box layout model to all elements */
+    body, div, span { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box }
+
+    html {
+      font-size: 100%;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 20px;
+      color: #333333;
+      background-color: #ffffff;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .container {
+      -webkit-transform: translateZ(0);
+      -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+
+      /* flexbox */
+      display: -webkit-box;
+      -webkit-box-orient: horizontal;
+
+      /* new - flexbox */
+      /*
+      display: -webkit-box;
+      -webkit-box-orient: horizontal;
+      */
+
+      display: -moz-flex;
+      -moz-flex-direction: row;
+
+      display: -ms-flexbox;
+      -ms-flex-direction: row;
+
+      display: flex;
+      flex-direction: row;
+
+      width: 95%;
+      height: 95%;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    .container .panel {
+      background-color: rgba(245, 245, 245, 0.75);
+      overflow-x: hidden;
+      overflow-y: auto;
+      /* toggle width to 15em to animate the panel */
+      width: 0em;
+      height: 25em;
+      border-radius: 10px;
+      -moz-transition: width 0.4s;
+      -o-transition: width 0.4s;
+      -webkit-transition: width 0.4s;
+      transition: width 0.4s;
+    }
+
+    .container .panel .header {
+      color: rgba(0, 136, 204, 0.75);
+      padding-left: 10px;
+      padding-top: 10px;
+      border-bottom: 1px solid #BEBEC5
+    }
+
+    .container .panel .items {
+      padding-left: 15px;
+    }
+
+    .container .panel .items:hover {
+      background-color: #CCC;
+    }
+
+    .container .content {
+      background-color: rgba(245, 245, 245, 0.75);
+      margin-left: 20px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      /* min width is important to give it a clipped effect */
+      min-width: 100em;
+      height: 25em;
+
+      /* add box-flex = 1 to make it occupy the remaining amount of space*/
+      -webkit-box-flex: 1;
+      /* new flex box */
+      -webkit-flex: 1 1 auto;
+      -moz-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+  </style>
+  <script type="text/javascript">
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var content = document.querySelector('.content'),
+      panel = document.querySelector('.panel'),
+      mode = 'hidden';
+
+    content.addEventListener('click', function( event ) {
+      var width = '0em';
+      if (mode === 'hidden') {
+        width = '90%';
+        mode = 'show';
+      } else {
+        mode = 'hidden';
+      }
+      panel.style.width = width;
+    }, false);
+  });
+
+  </script>
+  <title>Sliding Panels</title>
+</head>
+<body>
+  <div class='container'>
+    <div class='panel'>
+      <ul>
+        <li class='header'>Channels</li>
+        <li class='items'>Google Tech Talks</li>
+        <li class='items'>Engadget</li>
+        <li class='items'>The Verge</li>
+        <li class='items'>Kindle</li>
+        <li class='header'>From Youtube</li>
+        <li class='items'>Recommended</li>
+        <li class='items'>Trending</li>
+        <li class='items'>Live !</li>
+        <li class='items'>Autos</li>
+        <li class='items'>Comedy</li>
+        <li class='items'>Education</li>
+        <li class='items'>Entertainment</li>
+        <li class='items'>Film</li>
+        <li class='items'>Gaming</li>
+        <li class='items'>Music</li>
+        <li class='items'>News</li>
+        <li class='items'>Non Profit</li>
+        <li class='items'>People</li>
+        <li class='items'>Pets</li>
+        <li class='items'>Science</li>
+        <li class='items'>Sports</li>
+        <li class='items'>How To</li>
+        <li class='items'>Travel</li>
+      </ul>
+    </div>
+    <div class='content'>
+      <p>This is some example content.</p>
+    </div>
+  </div>
+</body>
+</html>
