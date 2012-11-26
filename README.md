@@ -17,4 +17,4 @@ Other Experiments
 New* Android UI paradigms (Facebook, Twitter, Youtube etc.) apps have a nice sliding left manu (for app navigation.) This is an attempt to re-create that using the HTML5 Flexbox spec.
 Works really well on Webkit browsers (Chrome, Safari), Chrome on Android and IE 10. Firefox is still a work in progress.
 
-The test page is at [http://tikurahul.github.com/InfiniteScroll/experiments/slidingPanel.html here]. Click on the *sample content* div, and the slide in panel should show up. This is the first time, I have attempted something *complicated* with CSS. Comments are appreciated.
+The test page is at (http://tikurahul.github.com/InfiniteScroll/experiments/slidingPanel.html here). Click on the *sample content* div, and the slide in panel should show up. This is the first time, I have attempted something *complicated* with CSS. Comments are appreciated.
